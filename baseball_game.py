@@ -175,15 +175,15 @@ def get_strikes_or_ball(user_input_number, random_number):
     # '''
     # ===Modify codes below=============
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당
-    strike = 0
-    for a, b in list(zip(list(user_input_number), list(random_number))):
-        if a == b:
+    strike, ball = 0, 0
+    for s in random_number:
+        if s not in user_input_number:
+            continue
+        if random_number.index(s) == user_input_number.index(s):
             strike += 1
-
-    ball = 0
-    for i in range(len(list(user_input_number)) - 1):
-        if list(user_input_number)[i] in list(random_number)[i + 1:]:
+        else:
             ball += 1
+
     return [strike, ball]
 
 
