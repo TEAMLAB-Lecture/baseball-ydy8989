@@ -253,22 +253,21 @@ def main():
             continue
         strike_ball_arr = get_strikes_or_ball(user_input, random_number)
         print(f"Strikes : {strike_ball_arr[0]} , Balls : {strike_ball_arr[1]}")
-        if strike_ball_arr[0] == 3:
-            while True:
-                answer = input("You Win, one more(Y/N) ?")
-                if answer == "0":
-                    user_input = "0"
-                    break
-                if is_yes(answer):
-                    random_number = str(get_not_duplicated_three_digit_number())
-                    print("Random Number is : ", random_number)
-                    break;
-                elif is_no(answer):
-                    user_input = "0"
-                    break
-                else:
-                    print("Wrong input, Input again")
-                    continue
+        while strike_ball_arr[0] == 3:
+            answer = input("You Win, one more(Y/N) ?")
+            if answer == "0":
+                user_input = "0"
+                break
+            if is_yes(answer):
+                random_number = str(get_not_duplicated_three_digit_number())
+                print("Random Number is : ", random_number)
+                break;
+            elif is_no(answer):
+                user_input = "0"
+                break
+            else:
+                print("Wrong input, Input again")
+                continue
     # ==================================
     print("Thank you for using this program")
     print("End of the Game")
